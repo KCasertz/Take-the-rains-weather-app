@@ -20,7 +20,7 @@ function formatDate(now) {
 
   let day = days[now.getDay()];
 
-  let fullDate = `on ${day}, at ${hours}:${minutes}`;
+  let fullDate = `Last updated on ${day}, at ${hours}:${minutes}`;
 
   return fullDate;
 }
