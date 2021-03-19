@@ -10,7 +10,7 @@ p {
   border: 0px;
   text-align: right;
   font-family: "Francois One", sans-serif;
-  line-height: 22px;
+  line-height: 28px;
   color: black;
 }
 
@@ -20,6 +20,10 @@ p {
   position: relative;
   top: 18px;
 }
+
+#date-text {
+  font-size: 12px;
+  }
 
 #weather-description {
 position: relative;
@@ -56,13 +60,16 @@ a:link {
   color: black
 }
 
+a:hover {
+  text-decoration: underline;
+  }
+
 a:visited {
   text-decoration: none;
   color: black;
 }
 
 #city-search-form {
-
   float: left;
 
 }
@@ -86,12 +93,13 @@ a:visited {
 #dash {
   padding: 25px;
   display: block;
-  margin: 110px auto;
+  margin: 110px auto 10px;
   background-color: #ffa600;
   width: 50%;
   height: 25%;
   box-shadow: 10px 10px #000000;
   max-width: 700px;
+  min-width: 600px;
   border-radius: 10px;
 }
 
@@ -117,3 +125,14 @@ a:visited {
 #forecast-img {
   width: 50px;
 }
+
+#open-source-code-text {
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ font-size: 12px;
+ display: block;
+ margin: 0 auto;
+ text-align: center;
+ background-color: white;
+ max-width: 200px;
+ 
+ }
