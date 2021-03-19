@@ -103,6 +103,9 @@ a:visited {
   border-radius: 10px;
 }
 
+#shrink-text {
+  font-size: 40px;
+}
 .col {
   text-align: center;
   padding-left: 0px;
