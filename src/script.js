@@ -109,7 +109,6 @@ console.log(position);
 }
 
 function handleCurrentClick() {
-alert("it worked");
 navigator.geolocation.getCurrentPosition(getPosition);
 }
 
