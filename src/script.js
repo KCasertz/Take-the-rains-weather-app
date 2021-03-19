@@ -43,6 +43,8 @@ function getTemp(response) {
   tempText.innerHTML = `${temperatureCurrent}`
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
+  let weatherDescriptionText = document.querySelector("#weather-description-text")
+  weatherDescriptionText.innerHTML = response.data.weather[0].description;
 }
 
 function askTempMetric() {
