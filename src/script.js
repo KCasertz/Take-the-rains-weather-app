@@ -122,8 +122,6 @@ farenheitLink.addEventListener("click", switchToFarenheit);
 
   
 function getPosition(position) {
-console.log(position);
-
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;  
   
