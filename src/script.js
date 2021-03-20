@@ -37,6 +37,16 @@ function showCity(event) {
   cityName.innerHTML = `${cityInput.value}`;
 }
 
+function getWindfromMps(response) {
+  let windText = document.querySelector("#wind-speed")
+  windText.innerHTML = Math.round(response.data.wind.speed * 2.237);
+}
+
+function getWindfromMph(response) {
+  let windText = document.querySelector("#wind-speed")
+  windText.innerHTML = Math.round(response.data.wind.speed);
+}
+
 function getTemp(response) {
   
   let temperatureCurrent = Math.round(response.data.main.temp);
@@ -63,8 +73,7 @@ function getTemp(response) {
     weatherDescriptionText.innerHTML = "a tornado's coming"
   }
 
-  let windText = document.querySelector("#wind-speed")
-  windText.innerHTML = Math.round(response.data.wind.speed * 2.237);
+  
 
   
   let humidityText = document.querySelector("#humidity")
@@ -108,6 +117,7 @@ function askTempMetric() {
  let apiKey = "fbf0c8cbaf3d65ed6898c18bd1f3e038";
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
  axios.get(apiUrl).then(getTemp);
+ axios.get(apiUrl).then(getWindfromMps);
 
  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
  axios.get(apiUrl).then(displayForecast)
@@ -121,6 +131,7 @@ function askTempImp() {
  let apiKey = "fbf0c8cbaf3d65ed6898c18bd1f3e038";
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
  axios.get(apiUrl).then(getTemp);
+ axios.get(apiUrl).then(getWindfromMph);
 
  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`;
  axios.get(apiUrl).then(displayForecast)
