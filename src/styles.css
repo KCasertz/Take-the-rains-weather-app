@@ -116,10 +116,10 @@ a:visited {
   color: black;
 }
 
-#lightning-img {
+#main-weather-icon {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 100%;
   padding: 10px;
   margin-top: 20px;
   position: center;

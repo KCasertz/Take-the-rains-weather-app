@@ -43,6 +43,12 @@ function getTemp(response) {
   tempText.innerHTML = `${temperatureCurrent}`
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
+  let mainWeatherIcon = document.querySelector("#main-weather-icon");
+  console.log(mainWeatherIcon.innerHTML);
+  mainWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+  
+  
+
   let weatherDescriptionText = document.querySelector("#weather-description-text")
   weatherDescriptionText.innerHTML = response.data.weather[0].main;
   if (response.data.weather[0].main === "Thunderstorm") {
@@ -57,6 +63,8 @@ function getTemp(response) {
   if (response.data.weather[0].main === "Tornado") {
     weatherDescriptionText.innerHTML = "a tornado's coming"
   }
+
+  
   
 }
 
