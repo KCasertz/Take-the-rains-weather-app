@@ -44,7 +44,6 @@ function getTemp(response) {
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
   let mainWeatherIcon = document.querySelector("#main-weather-icon");
-  console.log(mainWeatherIcon.innerHTML);
   mainWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
   
 
@@ -78,6 +77,36 @@ function getTemp(response) {
   
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+      hours = `0${hours}`;}
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+      minutes = `0${minutes}`;}
+  
+  return `${hours}:${minutes}`;
+
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = null;
+  forecastElement.innerHTML = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col">
+      <p class="forecast-text">
+        <b>${formatHours(forecast.dt * 1000)}</b></br>
+      <img class="forecast-img" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+        <b>${Math.round(forecast.main.temp_max)}° </b>${Math.round(forecast.main.temp_min)}°</p>
+    </div>
+` }
+  }
+  
 function askTempMetric() {
  let cityInput = document.querySelector("#city-input");
  let cityName = cityInput.value;
@@ -85,7 +114,11 @@ function askTempMetric() {
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
  axios.get(apiUrl).then(getTemp);
 
+ apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+ axios.get(apiUrl).then(displayForecast)
+
 }
+
 
 function askTempImp() {
  let cityInput = document.querySelector("#city-input");
@@ -93,7 +126,6 @@ function askTempImp() {
  let apiKey = "fbf0c8cbaf3d65ed6898c18bd1f3e038";
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
  axios.get(apiUrl).then(getTemp);
-
 }
 
 let citySearchForm = document.querySelector("#city-search-form");
@@ -138,4 +170,3 @@ navigator.geolocation.getCurrentPosition(getPosition);
 
 let currentButton = document.querySelector("#current-btn");
 currentButton.addEventListener("click", handleCurrentClick);
-
