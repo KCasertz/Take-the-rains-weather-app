@@ -44,7 +44,8 @@ function getTemp(response) {
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
   let mainWeatherIcon = document.querySelector("#main-weather-icon");
-  mainWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+  console.log(response.data);
+  mainWeatherIcon.setAttribute("src", `images/${response.data.weather[0].icon}.png`);
   
 
   if (response.data.weather[0].icon === "02d") {
@@ -97,11 +98,12 @@ function displayForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    console.log(response.data.list[index])
     forecastElement.innerHTML += `
     <div class="col">
       <p class="forecast-text">
         <b>${formatHours(forecast.dt * 1000)}</b></br>
-      <img class="forecast-img" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+      <img class="forecast-img" src="images/${forecast.weather[0].icon}.png">
         <b>${Math.round(forecast.main.temp_max)}° </b>${Math.round(forecast.main.temp_min)}°</p>
     </div>
 ` }
@@ -127,7 +129,7 @@ function askTempImp() {
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
  axios.get(apiUrl).then(getTemp);
 
- apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`;
+ apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
  axios.get(apiUrl).then(displayForecast)
 }
 
