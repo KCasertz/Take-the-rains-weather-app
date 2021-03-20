@@ -75,8 +75,6 @@ function getTemp(response) {
   if (response.data.weather[0].main === "Tornado") {
     weatherDescriptionText.innerHTML = "a tornado's coming"
   }
-
-  
   
 }
 
@@ -121,14 +119,7 @@ celsiusLink.addEventListener("click", switchToCelsius);
 farenheitLink.addEventListener("click", switchToFarenheit);
 
 
-function getTempCity(response) {
-  let temperatureCurrent = Math.round(response.data.main.temp);
-  let tempText = document.querySelector("#temperature-text")
-  tempText.innerHTML = `${temperatureCurrent}`
-  let cityName = document.querySelector("#city-name");
-  cityName.innerHTML = `${response.data.name}`;
-  
-}
+
   
 function getPosition(position) {
 console.log(position);
@@ -138,7 +129,7 @@ console.log(position);
   
   let apiKey = "fbf0c8cbaf3d65ed6898c18bd1f3e038";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(getTempCity)
+  axios.get(apiUrl).then(getTemp)
   
 
 }
