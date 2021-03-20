@@ -19,7 +19,7 @@ p {
   text-align: right;
   position: relative;
   top: 18px;
-}
+  }
 
 #date-text {
   font-size: 12px;
@@ -144,7 +144,7 @@ a:visited {
 
  .forecast-text {
    text-align:center;
-   font-size: 12px;
+   font-size: 14px;
    font-weight: normal;
    line-height: 20px;
  }
@@ -153,4 +153,19 @@ a:visited {
   height: 30px;
   display:block;
   margin: 0 auto;
+}
+
+#wind-and-humidity {
+font-size: 12px;
+line-height: 20px;
+position: relative;
+top: -15px;
+
+}
+
+#date {
+  text-align:left;
+  position: relative;
+  left: 3px;
+  line-height: 12px;
 }

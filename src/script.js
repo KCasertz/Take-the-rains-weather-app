@@ -20,7 +20,7 @@ function formatDate(now) {
 
   let day = days[now.getDay()];
 
-  let fullDate = `Last updated on ${day}, at ${hours}:${minutes}`;
+  let fullDate = `${day}, at ${hours}:${minutes}`;
 
   return fullDate;
 }
@@ -38,6 +38,7 @@ function showCity(event) {
 }
 
 function getTemp(response) {
+  
   let temperatureCurrent = Math.round(response.data.main.temp);
   let tempText = document.querySelector("#temperature-text")
   tempText.innerHTML = `${temperatureCurrent}`
@@ -48,6 +49,27 @@ function getTemp(response) {
 
   let weatherDescriptionText = document.querySelector("#weather-description-text")
   weatherDescriptionText.innerHTML = response.data.weather[0].main;
+
+  if (response.data.weather[0].main === "Thunderstorm") {
+    weatherDescriptionText.innerHTML = "thunderstorms"
+  }
+  if (response.data.weather[0].main === "Clear") {
+    weatherDescriptionText.innerHTML = "it's pretty clear"
+  }
+  if (response.data.weather[0].main === "Clouds") {
+    weatherDescriptionText.innerHTML = "it's pretty cloudy"
+  }
+  if (response.data.weather[0].main === "Tornado") {
+    weatherDescriptionText.innerHTML = "a tornado's coming"
+  }
+
+  let windText = document.querySelector("#wind-speed")
+  windText.innerHTML = Math.round(response.data.wind.speed * 2.237);
+
+  
+  let humidityText = document.querySelector("#humidity")
+  humidityText.innerHTML = response.data.main.humidity;
+
  }
 
 function formatHours(timestamp) {
