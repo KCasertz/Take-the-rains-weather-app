@@ -83,7 +83,6 @@ function displayForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-    console.log(response.data.list[index])
     forecastElement.innerHTML += `
     <div class="col">
       <p class="forecast-text">
@@ -114,7 +113,7 @@ function askTempImp() {
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
  axios.get(apiUrl).then(getTemp);
 
- apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+ apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`;
  axios.get(apiUrl).then(displayForecast)
 }
 
