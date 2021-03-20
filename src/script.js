@@ -44,22 +44,7 @@ function getTemp(response) {
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
   let mainWeatherIcon = document.querySelector("#main-weather-icon");
-  console.log(response.data);
   mainWeatherIcon.setAttribute("src", `images/${response.data.weather[0].icon}.png`);
-  
-
-  if (response.data.weather[0].icon === "02d") {
-    mainWeatherIcon.setAttribute("src", `images/fewclouds.png`)
-  }
-  if (response.data.weather[0].icon === "01d") {
-    mainWeatherIcon.setAttribute("src", `images/clearsky.png`)
-  }
-  if (response.data.weather[0].icon === "10d") {
-    mainWeatherIcon.setAttribute("src", `images/raining.png`)
-  }
-  if (response.data.weather[0].icon === "11d") {
-    mainWeatherIcon.setAttribute("src", `images/lightning.png`)
-  }
 
   let weatherDescriptionText = document.querySelector("#weather-description-text")
   weatherDescriptionText.innerHTML = response.data.weather[0].main;
