@@ -45,6 +45,19 @@ function getTemp(response) {
   cityName.innerHTML = response.data.name;
   let weatherDescriptionText = document.querySelector("#weather-description-text")
   weatherDescriptionText.innerHTML = response.data.weather[0].main;
+  if (response.data.weather[0].main === "Thunderstorm") {
+    weatherDescriptionText.innerHTML = "thunderstorms"
+  }
+  if (response.data.weather[0].main === "Clear") {
+    weatherDescriptionText.innerHTML = "it's pretty clear"
+  }
+  if (response.data.weather[0].main === "Clouds") {
+    weatherDescriptionText.innerHTML = "it's pretty cloudy"
+  }
+  if (response.data.weather[0].main === "Tornado") {
+    weatherDescriptionText.innerHTML = "a tornado's coming"
+  }
+  
 }
 
 function askTempMetric() {
