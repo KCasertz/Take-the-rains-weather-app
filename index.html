@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <link rel="stylesheet" href="src/styles.css">
     <title>Take the rains</title>
 </head>
@@ -17,7 +18,7 @@
   <div id="dash">
   
     <div class="row" id="row1">
-      <div class="col">
+      <div class="col-12">
         <form id="city-search-form">          
           <input id="city-input" type="search" class="col-auto" placeholder="Which city?" autofocus>
           <input id="submit-btn" type="submit" value="Search">
@@ -28,18 +29,17 @@
     </div>
     
     <div class="row" id="row2">
-      <div class="col-6 d-flex justify-content-center">
-        <h1></h1></br>
+      <div class="col-4">
+      </br>
         <img id="lightning-img" src="images/lightning.png">
       </div>
 
-      <div class="col-6">
+      <div class="col-8">
       </br>
       <p><span id="temperature-text">18</span>
         <span id="temp-units"><a href="#" id="celsius-link"> °C</a>|<a href="#" id="farenheit-link">F</a></span></p>
         <p><span id="weather-description"> and looks like <span id="weather-description-text">storms</span> in</span></p>
-        </br><p id="city-name">London<p>
-        </br>
+        </br><p id="city-name" class="large-text">London<p>
         <p><span id="date-text">8th June 2020 12:32</span></br></br>        
       </div>
     </div>

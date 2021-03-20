@@ -23,6 +23,8 @@ p {
 
 #date-text {
   font-size: 12px;
+  position: relative;
+  top: 10px;
   }
 
 #weather-description {
@@ -80,7 +82,6 @@ a:visited {
   font-family: "Francois One", sans-serif;
   text-align: right;
   font-size: 60px;
- 
 }
 
 #city-input {
@@ -95,17 +96,14 @@ a:visited {
   display: block;
   margin: 110px auto 10px;
   background-color: #ffa600;
-  width: 50%;
-  height: 25%;
+  width: 500px;
+  height: 350px;
   box-shadow: 10px 10px #000000;
-  max-width: 700px;
-  min-width: 600px;
+  max-width: 600px;
+  min-width: 400px;
   border-radius: 10px;
 }
 
-#shrink-text {
-  font-size: 40px;
-}
 .col {
   text-align: center;
   padding-left: 0px;
@@ -114,14 +112,17 @@ a:visited {
 
 .forecast {
   text-decoration: bold;
-  padding-top: 20px;
+  padding-top: 0px 5px;
   color: black;
 }
 
 #lightning-img {
-  width: 70%;
+  display: block;
+  margin: auto;
+  width: 80%;
   padding: 10px;
   margin-top: 20px;
+  position: center;
   
 }
 
@@ -138,4 +139,8 @@ a:visited {
  background-color: white;
  max-width: 200px;
  
+ }
+
+ #weather-description-text {
+ text-transform: lowercase;
  }

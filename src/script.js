@@ -44,7 +44,7 @@ function getTemp(response) {
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
   let weatherDescriptionText = document.querySelector("#weather-description-text")
-  weatherDescriptionText.innerHTML = response.data.weather[0].description;
+  weatherDescriptionText.innerHTML = response.data.weather[0].main;
 }
 
 function askTempMetric() {
@@ -87,8 +87,6 @@ function switchToFarenheit(event) {
 celsiusLink.addEventListener("click", switchToCelsius);
 farenheitLink.addEventListener("click", switchToFarenheit);
 
-
-//the code I cant get to work
 
 function getTempCity(response) {
   let temperatureCurrent = Math.round(response.data.main.temp);
