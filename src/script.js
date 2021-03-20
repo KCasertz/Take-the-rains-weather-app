@@ -47,7 +47,19 @@ function getTemp(response) {
   console.log(mainWeatherIcon.innerHTML);
   mainWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
   
-  
+
+  if (response.data.weather[0].icon === "02d") {
+    mainWeatherIcon.setAttribute("src", `images/fewclouds.png`)
+  }
+  if (response.data.weather[0].icon === "01d") {
+    mainWeatherIcon.setAttribute("src", `images/clearsky.png`)
+  }
+  if (response.data.weather[0].icon === "10d") {
+    mainWeatherIcon.setAttribute("src", `images/raining.png`)
+  }
+  if (response.data.weather[0].icon === "11d") {
+    mainWeatherIcon.setAttribute("src", `images/lightning.png`)
+  }
 
   let weatherDescriptionText = document.querySelector("#weather-description-text")
   weatherDescriptionText.innerHTML = response.data.weather[0].main;
